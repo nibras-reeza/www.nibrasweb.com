@@ -218,10 +218,10 @@ jQuery(document).ready(
 								});
 
 						var height = $(event.target).closest('.popup-modal')
-								.children('img').height();
+								.children('img').outerHeight();
 						height += $(event.target).closest('.popup-modal').find(
-								'.overview').height();
-						height+=7;
+								'.overview').outerHeight();
+						height-=4;
 
 						$(event.target).closest('.popup-modal')
 								.find('.details').css('min-height',height);
