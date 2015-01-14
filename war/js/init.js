@@ -207,24 +207,24 @@ jQuery(document).ready(
 					function(event) {
 						if ($(event.target).text() == 'Details')
 							$(event.target).fadeOut(function() {
-								 $(event.target).text('Summary');
+								$(event.target).text('Summary');
 								$(event.target).fadeIn();
-								  
-								});
+
+							});
 						else
 							$(event.target).fadeOut(function() {
-								  $(event.target).text("Details");
-								  $(event.target).fadeIn();
-								});
+								$(event.target).text("Details");
+								$(event.target).fadeIn();
+							});
 
 						var height = $(event.target).closest('.popup-modal')
 								.children('img').outerHeight();
 						height += $(event.target).closest('.popup-modal').find(
 								'.overview').outerHeight();
-						height-=4;
+						height -= 4;
 
 						$(event.target).closest('.popup-modal')
-								.find('.details').css('min-height',height);
+								.find('.details').css('min-height', height);
 
 						if ($(event.target).closest('.popup-modal').find(
 								'.details').css('display') == 'none') {
@@ -260,5 +260,12 @@ jQuery(document).ready(
 						}
 
 					});
-
+			$('.tooltip').tooltipster({
+				maxWidth:520,
+				theme : 'tooltipster-light',
+				iconTouch : true,
+				icon : 'Details',
+				iconDesktop : true,
+				iconTouch : true
+			});
 		});
