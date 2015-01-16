@@ -229,6 +229,7 @@ jQuery(document).ready(
 						if ($(event.target).closest('.popup-modal').find(
 								'.details').css('display') == 'none') {
 
+							
 							$(event.target).closest('.popup-modal').find(
 									'.overview').fadeToggle();
 							$(event.target).closest('.popup-modal').children(
@@ -239,6 +240,8 @@ jQuery(document).ready(
 												.find('.details').fadeToggle();
 
 									});
+							
+							
 						} else {
 
 							$(event.target).closest('.popup-modal').find(

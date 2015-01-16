@@ -1139,9 +1139,16 @@ properly.
 	font-size: 1em;
 	color: #6F6F6F;
 }
+.details h3{
+	
+	font-size: 23px;
+	letter-spacing: 1px;
+}
 
-.popup-modal .details hr {
-	margin: 0px;
+.details button{
+	padding: 1em;
+	font-size: 1em;
+	line-height: 1em;
 }
 
 .tooltipster-icon {
@@ -1159,3 +1166,18 @@ properly.
 	letter-space: 1px;
 }
 
+
+ 
+ .details .info{
+ 	font: 16px/24px "opensans-italic",sans-serif !important;
+ }
+ .details .date{
+	
+	font: 15px/24px "opensans-regular",sans-serif;
+margin-top: 6px;
+}
+ 
+ .details span{
+ 	margin-left: 5px;
+ 	margin-right: 5px;
+ }
