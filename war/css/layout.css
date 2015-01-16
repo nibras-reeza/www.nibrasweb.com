@@ -680,11 +680,11 @@ ul#nav li.current a {
 /* content at start */
 .mfp-fade.mfp-wrap .mfp-content .popup-modal {
 	opacity: 0;
-	-webkit-transition: all 300ms ease-in-out;
-	-moz-transition: all 300ms ease-in-out;
-	-o-transition: all 300ms ease-in-out;
-	-ms-transition: all 300ms ease-in-out;
-	transition: all 300ms ease-in-out;
+	-webkit-transition: all 200ms ease-in-out;
+	-moz-transition: all 200ms ease-in-out;
+	-o-transition: all 200ms ease-in-out;
+	-ms-transition: all 200ms ease-in-out;
+	transition: all 200ms ease-in-out;
 }
 /* content fadein */
 .mfp-fade.mfp-wrap.mfp-ready .mfp-content .popup-modal {

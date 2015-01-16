@@ -243,13 +243,13 @@ jQuery(document).ready(
 								'.details').css('display') == 'none') {
 
 							$(event.target).closest('.popup-modal').find(
-									'.overview').fadeToggle();
+									'.overview').fadeToggle(200);
 							$(event.target).closest('.popup-modal').children(
-									'img').fadeToggle(
+									'img').fadeToggle(200,
 
 									function() {
 										$(event.target).closest('.popup-modal')
-												.find('.details').fadeToggle();
+												.find('.details').fadeToggle(200);
 
 									});
 
@@ -257,18 +257,18 @@ jQuery(document).ready(
 
 							$(event.target).closest('.popup-modal').find(
 									'.details')
-									.fadeToggle(
+									.fadeToggle(200,
 
 											function() {
 
 												$(event.target).closest(
 														'.popup-modal').find(
 														'.overview')
-														.fadeToggle();
+														.fadeToggle(200);
 												$(event.target).closest(
 														'.popup-modal')
 														.children('img')
-														.fadeToggle();
+														.fadeToggle(200);
 											});
 
 						}
