@@ -3,7 +3,8 @@
 /* Init JS
 /*
 -----------------------------------------------------------------------------------*/
-
+var animationDone = false;
+var hash='';
 jQuery(document).ready(
 		function($) {
 
@@ -35,6 +36,7 @@ jQuery(document).ready(
 					'scrollTop' : $target.offset().top
 				}, 800, 'swing', function() {
 					window.location.hash = target;
+					animationDone = true;
 				});
 			});
 
@@ -127,7 +129,18 @@ jQuery(document).ready(
 				fixedContentPos : false,
 				removalDelay : 200,
 				showCloseBtn : false,
-				mainClass : 'mfp-fade'
+				mainClass : 'mfp-fade',
+				callbacks : {
+					elementParse : function(item) {
+						hash =window.location.hash; 
+
+						window.location.hash = item.src;
+					},
+					close : function() {
+
+						window.location.hash = hash;
+					}
+				}
 
 			});
 
@@ -229,7 +242,6 @@ jQuery(document).ready(
 						if ($(event.target).closest('.popup-modal').find(
 								'.details').css('display') == 'none') {
 
-							
 							$(event.target).closest('.popup-modal').find(
 									'.overview').fadeToggle();
 							$(event.target).closest('.popup-modal').children(
@@ -240,8 +252,7 @@ jQuery(document).ready(
 												.find('.details').fadeToggle();
 
 									});
-							
-							
+
 						} else {
 
 							$(event.target).closest('.popup-modal').find(
@@ -264,11 +275,32 @@ jQuery(document).ready(
 
 					});
 			$('.tooltip').tooltipster({
-				maxWidth:520,
+				maxWidth : 520,
 				theme : 'tooltipster-light',
 				iconTouch : true,
 				icon : 'Details',
 				iconDesktop : true,
 				iconTouch : true
 			});
+
+			if (window.location.hash.match(/modal/gi)) {
+				var link = window.location.hash.toString();
+
+				$('a[href$="portfolio"]').click();
+				openPopup(link);
+
+			}
+			
+
 		});
+
+function openPopup(link) {
+
+	if (animationDone) {
+
+		$('a[href$=' + link + ']').click();
+	} else
+		setTimeout(function() {
+			openPopup(link);
+		}, 100);
+}
