@@ -192,7 +192,7 @@ jQuery(document).ready(
 						$.ajax({
 
 							type : "POST",
-							url : "inc/sendEmail.php",
+							url : "/contact",
 							data : data,
 							success : function(msg) {
 
