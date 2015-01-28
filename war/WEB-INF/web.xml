@@ -17,4 +17,17 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
     <url-pattern>/contact</url-pattern>
   </servlet-mapping>
   
+  
+  
+   <servlet>
+    <servlet-name>TwitterServlet</servlet-name>
+    <servlet-class>com.nibrasweb.www.TwitterServlet</servlet-class>
+    
+    
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>TwitterServlet</servlet-name>
+    <url-pattern>/twitter</url-pattern>
+  </servlet-mapping>
 </web-app>

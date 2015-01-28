@@ -4,9 +4,14 @@
 /*
 -----------------------------------------------------------------------------------*/
 var animationDone = false;
-var hash='';
+var hash = '';
 jQuery(document).ready(
 		function($) {
+
+			$.ajax('/twitter').done(function(data) {
+				$('#twitter').html(data);
+				
+			});
 
 			/*----------------------------------------------------*/
 			/*
@@ -132,7 +137,7 @@ jQuery(document).ready(
 				mainClass : 'mfp-fade',
 				callbacks : {
 					elementParse : function(item) {
-						hash =window.location.hash; 
+						hash = window.location.hash;
 
 						window.location.hash = item.src;
 					},
@@ -175,8 +180,8 @@ jQuery(document).ready(
 					function() {
 
 						$('#contactForm').validate();
-						
-						if(!$('#contactForm').valid())
+
+						if (!$('#contactForm').valid())
 							return;
 						$('#image-loader').fadeIn();
 
@@ -249,31 +254,31 @@ jQuery(document).ready(
 							$(event.target).closest('.popup-modal').find(
 									'.overview').fadeToggle(200);
 							$(event.target).closest('.popup-modal').children(
-									'img').fadeToggle(200,
+									'img').fadeToggle(
+									200,
 
 									function() {
 										$(event.target).closest('.popup-modal')
-												.find('.details').fadeToggle(200);
+												.find('.details').fadeToggle(
+														200);
 
 									});
 
 						} else {
 
 							$(event.target).closest('.popup-modal').find(
-									'.details')
-									.fadeToggle(200,
+									'.details').fadeToggle(
+									200,
 
-											function() {
+									function() {
 
-												$(event.target).closest(
-														'.popup-modal').find(
-														'.overview')
-														.fadeToggle(200);
-												$(event.target).closest(
-														'.popup-modal')
-														.children('img')
-														.fadeToggle(200);
-											});
+										$(event.target).closest('.popup-modal')
+												.find('.overview').fadeToggle(
+														200);
+										$(event.target).closest('.popup-modal')
+												.children('img')
+												.fadeToggle(200);
+									});
 
 						}
 
@@ -294,7 +299,6 @@ jQuery(document).ready(
 				openPopup(link);
 
 			}
-			
 
 		});
 
