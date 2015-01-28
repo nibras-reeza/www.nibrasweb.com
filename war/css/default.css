@@ -1181,3 +1181,11 @@ margin-top: 6px;
  	margin-left: 5px;
  	margin-right: 5px;
  }
+ 
+ .details form{
+ display: inline;
+ }
+ 
+ .details button{
+ margin-left: 5px;
+ }
