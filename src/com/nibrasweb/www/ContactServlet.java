@@ -38,12 +38,13 @@ public class ContactServlet extends HttpServlet {
 
 		String error = "";
 		if (name == null || name.length() < 2)
-			error += "Please enter your name.";
+			error += "Please enter your name\n.";
 		if (email == null || email.length() < 5
 				|| !pattern.matcher(email).matches())
-			error += "Please enter a valid email address";
+			error += "Please enter a valid email address.\n";
 		if (message == null || message.length() < 8)
-			error += "Your message seems too short.";
+			error += "Your message seems too short.\n";
+
 		if (error.length() > 0) {
 			resp.getWriter().println(error);
 			return;
@@ -60,7 +61,6 @@ public class ContactServlet extends HttpServlet {
 			Transport.send(msg);
 
 		} catch (Exception e) {
-
 			resp.getWriter().println("Something went wrong. Please try again.");
 			throw new RuntimeException(e);
 		}

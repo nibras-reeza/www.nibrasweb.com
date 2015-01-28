@@ -1189,3 +1189,9 @@ margin-top: 6px;
  .details button{
  margin-left: 5px;
  }
+ 
+ label.error{
+ 
+ 
+ display: block !important;
+ }

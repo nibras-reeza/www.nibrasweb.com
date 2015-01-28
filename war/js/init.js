@@ -174,6 +174,10 @@ jQuery(document).ready(
 			$('form#contactForm button.submit').click(
 					function() {
 
+						$('#contactForm').validate();
+						
+						if(!$('#contactForm').valid())
+							return;
 						$('#image-loader').fadeIn();
 
 						var contactName = $('#contactForm #contactName').val();
