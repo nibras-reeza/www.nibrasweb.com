@@ -179,10 +179,6 @@ jQuery(document).ready(
 			$('form#contactForm button.submit').click(
 					function() {
 
-						$('#contactForm').validate();
-
-						if (!$('#contactForm').valid())
-							return;
 						$('#image-loader').fadeIn();
 
 						var contactName = $('#contactForm #contactName').val();
@@ -204,7 +200,6 @@ jQuery(document).ready(
 							url : "/contact",
 							data : data,
 							success : function(msg) {
-
 								// Message was sent
 								if (msg == 'OK') {
 									$('#image-loader').fadeOut();

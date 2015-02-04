@@ -65,7 +65,7 @@ public class ContactServlet extends HttpServlet {
 			throw new RuntimeException(e);
 		}
 
-		resp.getWriter().println("OK");
+		resp.getWriter().print("OK");
 
 	}
 
