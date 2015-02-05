@@ -580,7 +580,7 @@ img.pull-left {
 
 /*  6. Buttons  --------------------------------------------------------- */
 .button, .button:visited, button, input[type="submit"], input[type="reset"],
-	input[type="button"] {
+	input[type="button"], a.button {
 	font: 16px/30px 'opensans-bold', sans-serif;
 	background: #11ABB0;
 	display: inline-block;
@@ -609,8 +609,10 @@ img.pull-left {
 	color: #fff;
 }
 
+
+
 .button:active, button:active, input[type="submit"]:active, input[type="reset"]:active,
-	input[type="button"]:active {
+	input[type="button"]:active, a.button:active{
 	background: #3d4145;
 	color: #fff;
 }
@@ -624,7 +626,7 @@ img.pull-left {
 }
 
 /* Fix for odd Mozilla border & padding issues */
-button::-moz-focus-inner, input::-moz-focus-inner {
+button::-moz-focus-inner, input::-moz-focus-inner,a.button::-moz-focus-inner, a.button::-moz-focus-inner {
 	border: 0;
 	padding: 0;
 }
@@ -1145,7 +1147,7 @@ properly.
 	letter-spacing: 1px;
 }
 
-.details button{
+.details button, .details a.button{
 	padding: 1em;
 	font-size: 1em;
 	line-height: 1em;
@@ -1186,8 +1188,12 @@ margin-top: 6px;
  display: inline;
  }
  
- .details button{
+ .details button, .details a.button{
  margin-left: 5px;
  }
  
- 
+ a.button:hover{
+	background: #3d4145;
+	color: #fff !important;
+	
+}
