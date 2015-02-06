@@ -192,7 +192,7 @@ h6 {
 }
 
 .subheader {
-	
+
 }
 
 p {
@@ -405,11 +405,11 @@ li {
 }
 
 ul.large li {
-	
+
 }
 
 li p {
-	
+
 }
 
 /* ---------------------------------------------------------------------
@@ -561,7 +561,7 @@ dd {
 }
 
 .pagination .prev, .pagination .next {
-	
+
 }
 
 /*  5. Images  --------------------------------------------------------- */
@@ -580,7 +580,7 @@ img.pull-left {
 
 /*  6. Buttons  --------------------------------------------------------- */
 .button, .button:visited, button, input[type="submit"], input[type="reset"],
-	input[type="button"], a.button {
+	input[type="button"], a._btn {
 	font: 16px/30px 'opensans-bold', sans-serif;
 	background: #11ABB0;
 	display: inline-block;
@@ -612,7 +612,7 @@ img.pull-left {
 
 
 .button:active, button:active, input[type="submit"]:active, input[type="reset"]:active,
-	input[type="button"]:active, a.button:active{
+	input[type="button"]:active, a._btn:active{
 	background: #3d4145;
 	color: #fff;
 }
@@ -626,7 +626,7 @@ img.pull-left {
 }
 
 /* Fix for odd Mozilla border & padding issues */
-button::-moz-focus-inner, input::-moz-focus-inner,a.button::-moz-focus-inner, a.button::-moz-focus-inner {
+button::-moz-focus-inner, input::-moz-focus-inner,a._btn::-moz-focus-inner, a._btn::-moz-focus-inner {
 	border: 0;
 	padding: 0;
 }
@@ -1142,12 +1142,12 @@ properly.
 	color: #6F6F6F;
 }
 .details h3{
-	
+
 	font-size: 23px;
 	letter-spacing: 1px;
 }
 
-.details button, .details a.button{
+.details button, .details a._btn{
 	padding: 1em;
 	font-size: 1em;
 	line-height: 1em;
@@ -1161,7 +1161,7 @@ properly.
 	padding: 1%;
 	border-radius: 3px;
 	border: 3px solid rgb(17, 171, 176);
-	
+
 	color: #313131;
 	font: 14px/20px "opensans-bold", sans-serif;
 	text-transform: uppercase;
@@ -1169,31 +1169,46 @@ properly.
 }
 
 
- 
+
  .details .info{
  	font: 16px/24px "opensans-italic",sans-serif !important;
  }
  .details .date{
-	
+
 	font: 15px/24px "opensans-regular",sans-serif;
 margin-top: 6px;
 }
- 
+
  .details span{
  	margin-left: 5px;
  	margin-right: 5px;
  }
- 
+
  .details form{
  display: inline;
  }
- 
- .details button, .details a.button{
+
+ .details button, .details a._btn{
  margin-left: 5px;
  }
- 
- a.button:hover{
+
+ a._btn:hover{
 	background: #3d4145;
 	color: #fff !important;
-	
+
+}
+
+
+h4.outcome{
+	display: inline;
+
+}
+
+i.outcome{
+	color: green !important;
+	padding-right: 1%;
+}
+
+.outcome{
+	margin-bottom: 12px;
 }
