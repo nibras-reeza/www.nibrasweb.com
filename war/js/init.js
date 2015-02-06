@@ -10,7 +10,7 @@ jQuery(document).ready(
 
 			$.ajax('/twitter').done(function(data) {
 				$('#twitter').html(data);
-				
+
 			});
 
 			/*----------------------------------------------------*/
@@ -301,9 +301,15 @@ function openPopup(link) {
 
 	if (animationDone) {
 
-		$('a[href$=' + link + ']').click();
+		$('#portfolio').find('a[href$=' + link + ']').click();
 	} else
 		setTimeout(function() {
 			openPopup(link);
 		}, 100);
+}
+
+function showProject(project){
+	animationDone=false;
+	$('a[href$="portfolio"]').click();
+	openPopup(project);
 }
