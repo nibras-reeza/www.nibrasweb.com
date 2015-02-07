@@ -800,6 +800,31 @@ call-to-action .button {
 	overflow: hidden;
 }
 
+@media all and (max-width: 360px){
+	#testimonials {
+	background: #1F1F1F url(../images/testimonials-bg-360px.jpg) no-repeat center
+		center;}
+		}
+		
+		@media all and (max-width: 480px){
+	#testimonials {
+	background: #1F1F1F url(../images/testimonials-bg-480px.jpg) no-repeat center
+		center;}
+		}
+		
+		
+		@media all and (max-width: 640px){
+	#testimonials {
+	background: #1F1F1F url(../images/testimonials-bg-640p.jpg) no-repeat center
+		center;}
+		}
+		
+		@media all and (max-width: 1280px){
+	#testimonials {
+	background: #1F1F1F url(../images/testimonials-bg-720p.jpg) no-repeat center
+		center;}
+		}
+
 #testimonials .text-container {
 	padding-top: 96px;
 	padding-bottom: 66px;
