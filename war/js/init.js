@@ -204,8 +204,14 @@ jQuery(document).ready(
 								if (msg == 'OK') {
 									$('#image-loader').fadeOut();
 									$('#message-warning').hide();
-									$('#contactForm').fadeOut();
-									$('#message-success').fadeIn();
+									$('#contactForm').fadeOut(
+									
+											function(){
+												$('a[href$="contact"]').click();
+												$('#message-success').fadeIn();
+											}
+									);
+									
 								}
 								// There was an error
 								else {
