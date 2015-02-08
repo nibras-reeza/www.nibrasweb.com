@@ -302,13 +302,15 @@ jQuery(document).ready(
 				icon : 'Details',
 				iconDesktop : true,
 				iconTouch : true,
-				contentAsHTML: true
+				contentAsHTML: true,
+				interactive: true
 			});
 			
 			$('.titled_anchor').tooltipster({
 				maxWidth : 520,
 				theme : 'tooltipster-light',
-				contentAsHTML: true
+				contentAsHTML: true,
+				interactive: true
 			});
 
 			if (window.location.hash.match(/modal/gi)) {
