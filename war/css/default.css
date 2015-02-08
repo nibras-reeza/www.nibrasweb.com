@@ -60,11 +60,28 @@ audio, canvas, video {
 	display: inline-block;
 }
 
-audio:not ([controls] ) {
-	display: none;
-	height: 0;
-}
+audio
+:not
+ 
+(
+[
+controls
+]
+ 
+)
+{
+display
+:
+ 
+none
+;
 
+	
+height
+:
+ 
+0;
+}
 [hidden] {
 	display: none;
 }
@@ -192,7 +209,7 @@ h6 {
 }
 
 .subheader {
-
+	
 }
 
 p {
@@ -405,11 +422,11 @@ li {
 }
 
 ul.large li {
-
+	
 }
 
 li p {
-
+	
 }
 
 /* ---------------------------------------------------------------------
@@ -561,7 +578,7 @@ dd {
 }
 
 .pagination .prev, .pagination .next {
-
+	
 }
 
 /*  5. Images  --------------------------------------------------------- */
@@ -609,10 +626,8 @@ img.pull-left {
 	color: #fff;
 }
 
-
-
 .button:active, button:active, input[type="submit"]:active, input[type="reset"]:active,
-	input[type="button"]:active, a._btn:active{
+	input[type="button"]:active, a._btn:active {
 	background: #3d4145;
 	color: #fff;
 }
@@ -626,7 +641,8 @@ img.pull-left {
 }
 
 /* Fix for odd Mozilla border & padding issues */
-button::-moz-focus-inner, input::-moz-focus-inner,a._btn::-moz-focus-inner, a._btn::-moz-focus-inner {
+button::-moz-focus-inner, input::-moz-focus-inner, a._btn::-moz-focus-inner,
+	a._btn::-moz-focus-inner {
 	border: 0;
 	padding: 0;
 }
@@ -1141,13 +1157,13 @@ properly.
 	font-size: 1em;
 	color: #6F6F6F;
 }
-.details h3{
 
+.details h3 {
 	font-size: 23px;
 	letter-spacing: 1px;
 }
 
-.details button, .details a._btn{
+.details button, .details a._btn {
 	padding: 1em;
 	font-size: 1em;
 	line-height: 1em;
@@ -1161,69 +1177,71 @@ properly.
 	padding: 1%;
 	border-radius: 3px;
 	border: 3px solid rgb(17, 171, 176);
-
 	color: #313131;
 	font: 14px/20px "opensans-bold", sans-serif;
 	text-transform: uppercase;
 	letter-space: 1px;
 }
 
-
-
- .details .info{
- 	font: 16px/24px "opensans-italic",sans-serif !important;
- }
- .details .date{
-
-	font: 15px/24px "opensans-regular",sans-serif;
-margin-top: 6px;
+.details .info {
+	font: 16px/24px "opensans-italic", sans-serif !important;
 }
 
- .details span{
- 	margin-left: 5px;
- 	margin-right: 5px;
- }
+.details .date {
+	font: 15px/24px "opensans-regular", sans-serif;
+	margin-top: 6px;
+}
 
- .details form{
- display: inline;
- }
+.details span {
+	margin-left: 5px;
+	margin-right: 5px;
+}
 
- .details button, .details a._btn{
- margin-left: 5px;
- }
+.details form {
+	display: inline;
+}
 
+.details button, .details a._btn {
+	margin-left: 5px;
+}
 
- a._btn:hover{
+a._btn:hover {
 	background: #3d4145;
 	color: #fff !important;
-
 }
 
-
-h4.outcome{
+h4.outcome {
 	display: inline;
-
 }
 
-i.outcome{
+i.outcome {
 	color: green !important;
 	padding-right: 1%;
 }
 
-.outcome{
+.outcome {
 	margin-bottom: 12px;
 }
 
-.hidden_anchor{
-
-	display: block; position: relative; top: -100px;; visibility: hidden;
+.hidden_anchor {
+	display: block;
+	position: relative;
+	top: -100px;;
+	visibility: hidden;
 }
 
-#about p.myself a,#about p.myself a:visited{
-	color: #D3D3D3 ;
+#about p.myself a, #about p.myself a:visited {
+	color: #D3D3D3;
 }
 
+#about p.myself a:hover {
+	color: #11ABB0;
+}
 
-#about p.myself a:hover{
-	color: #11ABB0 ;
+#about p.address a, #about p.address a:visited {
+	color: inherit;
+}
+
+#about p.address a:hover {
+	color: #11ABB0;
 }
