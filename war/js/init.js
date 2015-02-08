@@ -143,7 +143,7 @@ jQuery(document).ready(
 					},
 					close : function() {
 
-						window.location.hash = hash;
+						window.location.hash = ' ';
 					}
 				}
 
@@ -205,13 +205,13 @@ jQuery(document).ready(
 									$('#image-loader').fadeOut();
 									$('#message-warning').hide();
 									$('#contactForm').fadeOut(
-									
+
 											function(){
 												$('a[href$="contact"]').click();
 												$('#message-success').fadeIn();
 											}
 									);
-									
+
 								}
 								// There was an error
 								else {
@@ -301,6 +301,16 @@ jQuery(document).ready(
 
 			}
 
+			$('a[href^=#skill]').click(
+
+				function(){
+					animationDone = false;
+					showTip($(this).prop("hash"));
+
+
+				}
+			);
+
 		});
 
 function openPopup(link) {
@@ -318,4 +328,18 @@ function showProject(project){
 	animationDone=false;
 	$('a[href$="portfolio"]').click();
 	openPopup(project);
+}
+
+function showTip(skill){
+
+	if (animationDone) {
+
+		$(skill).parent().find('span').tooltipster('show');
+	} else
+		setTimeout(function() {
+			showTip(skill);
+		}, 100);
+
+
+
 }
