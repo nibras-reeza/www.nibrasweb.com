@@ -12,6 +12,8 @@ jQuery(document).ready(
 				$('#twitter').html(data);
 
 			});
+			
+			$('a[href^=#skill]').addClass('smoothscroll');
 
 			/*----------------------------------------------------*/
 			/*
@@ -300,6 +302,8 @@ jQuery(document).ready(
 				openPopup(link);
 
 			}
+			
+			
 
 			$('a[href^=#skill]').click(
 
@@ -310,6 +314,8 @@ jQuery(document).ready(
 
 				}
 			);
+			
+			
 
 		});
 
