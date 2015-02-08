@@ -12,8 +12,18 @@ jQuery(document).ready(
 				$('#twitter').html(data);
 
 			});
-			
+
 			$('a[href^=#skill]').addClass('smoothscroll');
+
+			$('a[href^=#skill]').each(
+					function() {
+
+						this.title = $($(this).prop("hash")).parent().children(
+								'span').attr('title');
+						
+						$(this).addClass('titled_anchor');
+
+					});
 
 			/*----------------------------------------------------*/
 			/*
@@ -208,11 +218,10 @@ jQuery(document).ready(
 									$('#message-warning').hide();
 									$('#contactForm').fadeOut(
 
-											function(){
-												$('a[href$="contact"]').click();
-												$('#message-success').fadeIn();
-											}
-									);
+									function() {
+										$('a[href$="contact"]').click();
+										$('#message-success').fadeIn();
+									});
 
 								}
 								// There was an error
@@ -294,6 +303,12 @@ jQuery(document).ready(
 				iconDesktop : true,
 				iconTouch : true
 			});
+			
+			$('.titled_anchor').tooltipster({
+				maxWidth : 520,
+				theme : 'tooltipster-light',
+				
+			});
 
 			if (window.location.hash.match(/modal/gi)) {
 				var link = window.location.hash.toString();
@@ -302,20 +317,14 @@ jQuery(document).ready(
 				openPopup(link);
 
 			}
-			
-			
 
 			$('a[href^=#skill]').click(
 
-				function(){
-					animationDone = false;
-					showTip($(this).prop("hash"));
+			function() {
+				animationDone = false;
+				showTip($(this).prop("hash"));
 
-
-				}
-			);
-			
-			
+			});
 
 		});
 
@@ -330,13 +339,13 @@ function openPopup(link) {
 		}, 100);
 }
 
-function showProject(project){
-	animationDone=false;
+function showProject(project) {
+	animationDone = false;
 	$('a[href$="portfolio"]').click();
 	openPopup(project);
 }
 
-function showTip(skill){
+function showTip(skill) {
 
 	if (animationDone) {
 
@@ -345,7 +354,5 @@ function showTip(skill){
 		setTimeout(function() {
 			showTip(skill);
 		}, 100);
-
-
 
 }
