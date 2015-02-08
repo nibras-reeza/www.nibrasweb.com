@@ -301,13 +301,14 @@ jQuery(document).ready(
 				iconTouch : true,
 				icon : 'Details',
 				iconDesktop : true,
-				iconTouch : true
+				iconTouch : true,
+				contentAsHTML: true
 			});
 			
 			$('.titled_anchor').tooltipster({
 				maxWidth : 520,
 				theme : 'tooltipster-light',
-				
+				contentAsHTML: true
 			});
 
 			if (window.location.hash.match(/modal/gi)) {
