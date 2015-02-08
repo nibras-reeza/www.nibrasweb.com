@@ -306,12 +306,21 @@ jQuery(document).ready(
 				interactive: true
 			});
 			
-			$('.titled_anchor').tooltipster({
+			$('#home .titled_anchor,#about .titled_anchor').tooltipster({
+				maxWidth : 520,
+				theme : 'tooltipster-dark',
+				contentAsHTML: true,
+				interactive: true
+			});
+			
+			$(':not(#home, #about) .titled_anchor').tooltipster({
 				maxWidth : 520,
 				theme : 'tooltipster-light',
 				contentAsHTML: true,
 				interactive: true
 			});
+			
+			
 
 			if (window.location.hash.match(/modal/gi)) {
 				var link = window.location.hash.toString();
