@@ -1,15 +1,29 @@
 .tooltipster-light {
 	border-radius: 3px;
 	border: 1px solid #cccccc;
-	background: #ededed;
+	background: #efefef;
 	color: #666666;
 	margin:2%;
 }
 
 .tooltipster-light .tooltipster-content {
-	padding: 8px 10px;
+	
+	padding: 10px 12px;
 	font-family: "opensans-regular", sans-serif;
 	font-weight: normal;
 	font-size: 14px;
 	line-height: 20px;
+	letter-spacing: 1px;
+}
+
+.tooltipster-light .tooltipster-content a,.tooltipster-light .tooltipster-content a:visited{
+	
+	color:inherit;
+	font-weight: bold;
+	
+}
+
+.tooltipster-light .tooltipster-content a:hover{
+	
+	color: #313131;
 }
