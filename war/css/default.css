@@ -1213,3 +1213,17 @@ i.outcome{
 .outcome{
 	margin-bottom: 12px;
 }
+
+.hidden_anchor{
+
+	display: block; position: relative; top: -100px;; visibility: hidden;
+}
+
+#about p.myself a,#about p.myself a:visited{
+	color: #D3D3D3 ;
+}
+
+
+#about p.myself a:hover{
+	color: #11ABB0 ;
+}
