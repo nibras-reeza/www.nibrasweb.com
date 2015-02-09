@@ -1180,7 +1180,7 @@ properly.
 	color: #313131;
 	font: 14px/20px "opensans-bold", sans-serif;
 	text-transform: uppercase;
-	letter-space: 1px;
+	letter-spacing: 1px;
 }
 
 .details .info {
@@ -1249,4 +1249,10 @@ i.outcome {
 .opaque{
 	
 	box-shadow: 0px 0px 14px rgba(0,0,0,0.3);
+}
+
+a._btn-disabled, a._btn-disabled:visited, a._btn-disabled:hover{
+cursor: default;
+color: white !important;
+background:#a3aCa5;
 }
