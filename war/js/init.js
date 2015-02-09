@@ -295,16 +295,6 @@ jQuery(document).ready(
 						}
 
 					});
-			$('.tooltip').tooltipster({
-				maxWidth : 520,
-				theme : 'tooltipster-light',
-				iconTouch : true,
-				icon : 'Details',
-				iconDesktop : true,
-				iconTouch : true,
-				contentAsHTML: true,
-				interactive: true
-			});
 			
 			$('#home .titled_anchor,#about .titled_anchor').tooltipster({
 				maxWidth : 520,
@@ -319,6 +309,19 @@ jQuery(document).ready(
 				contentAsHTML: true,
 				interactive: true
 			});
+			
+			
+			$('.tooltip').tooltipster({
+				maxWidth : 520,
+				theme : 'tooltipster-light',
+				iconTouch : true,
+				icon : 'Details',
+				iconDesktop : true,
+				iconTouch : true,
+				contentAsHTML: true,
+				interactive: true
+			});
+			
 			
 			
 
