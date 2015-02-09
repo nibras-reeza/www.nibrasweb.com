@@ -1,6 +1,7 @@
 .tooltipster-dark {
+border: 1px solid #fff;
 	border-radius: 3px;
-	background: #fff;
+	background: #fefefe;
 	box-shadow: 0px 0px 14px rgba(200,200,200,0.3);
 	color: #2c2c2c;
 }
@@ -11,4 +12,8 @@
 	line-height: 21px;
 	letter-spacing: 1px;
 	padding: 8px 10px;
+}
+
+.tooltipster-dark .tooltipster-content a:hover{
+color:black;
 }
