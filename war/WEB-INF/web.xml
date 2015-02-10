@@ -30,24 +30,26 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>TwitterServlet</servlet-name>
 		<url-pattern>/twitter</url-pattern>
 	</servlet-mapping>
-
+	
+	
 	<filter>
-		<filter-name>yuiMinFilter</filter-name>
-		<filter-class>com.googlecode.webutilities.filters.YUIMinFilter</filter-class>
-		<!-- All the init params are optional and are equivalent to YUICompressor 
-			command line options -->
-		<init-param>
-			<param-name>lineBreak</param-name>
-			<param-value>8000</param-value>
-		</init-param>
+		<display-name>Yahoo Compressor Filter</display-name>
+		<filter-name>Minifier</filter-name>
+		<filter-class>com.nibrasweb.www.Minifier</filter-class>
 
-		<filter-mapping>
-			<filter-name>yuiMinFilter</filter-name>
-			<url-pattern>*.js</url-pattern>
-			
-			<url-pattern>*.css</url-pattern>
-		</filter-mapping>
 	</filter>
 
 
+	<filter-mapping>
+		<filter-name>Minifier</filter-name>
+		<url-pattern>*.js</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+
+
+	<filter-mapping>
+		<filter-name>Minifier</filter-name>
+		<url-pattern>*.css</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
 </web-app>
