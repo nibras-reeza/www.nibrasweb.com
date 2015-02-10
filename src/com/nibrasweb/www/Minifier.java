@@ -7,6 +7,7 @@ import java.io.StringWriter;
 import java.util.Hashtable;
 import java.util.Map;
 
+import java.util.logging.Level;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -31,120 +32,137 @@ import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
  *
  */
 public class Minifier implements Filter {
-	 
-	    private FilterConfig filterConfig;
 
-	    private int lineBreakPos = -1;   //Insert a line break after the specified column number
-	    private boolean warn = false; //Display possible errors in the code
-	    private boolean munge = true; //Minify only, do not obfuscate
-	    private boolean preserveAllSemiColons = false; //Preserve unnecessary semicolons
+	private FilterConfig filterConfig;
 
-	    private static Map<String, String> cache = new Hashtable<String, String>();
+	private int lineBreakPos = -1; // Insert a line break after the specified
+									// column number
+	private boolean warn = false; // Display possible errors in the code
+	private boolean munge = true; // Minify only, do not obfuscate
+	private boolean preserveAllSemiColons = false; // Preserve unnecessary
+													// semicolons
 
+	private static Map<String, String> cache = new Hashtable<String, String>();
 
-	    public void init(FilterConfig filterConfig) throws ServletException {
-	        this.filterConfig = filterConfig;
+	public void init(FilterConfig filterConfig) throws ServletException {
 
-	        String lineBreak = filterConfig.getInitParameter("line-break");
-	        if (lineBreak != null) {
-	            lineBreakPos = Integer.parseInt(lineBreak);
-	        }
+		this.filterConfig = filterConfig;
 
-	        String warnString = filterConfig.getInitParameter("warn");
-	        if (warnString != null) {
-	            warn = Boolean.parseBoolean(warnString);
-	        }
+		String lineBreak = filterConfig.getInitParameter("line-break");
+		if (lineBreak != null) {
+			lineBreakPos = Integer.parseInt(lineBreak);
+		}
 
-	        String noMungeString = filterConfig.getInitParameter("nomunge");
-	        if (noMungeString != null) {
-	            munge = Boolean.parseBoolean(noMungeString) ? false : true; //swap values because it's nomunge
-	        }
+		String warnString = filterConfig.getInitParameter("warn");
+		if (warnString != null) {
+			warn = Boolean.parseBoolean(warnString);
+		}
 
-	        String preserveAllSemiColonsString = filterConfig.getInitParameter("preserve-semi");
-	        if (preserveAllSemiColonsString != null) {
-	            preserveAllSemiColons = Boolean.parseBoolean(preserveAllSemiColonsString);
-	        }
-	    }
+		String noMungeString = filterConfig.getInitParameter("nomunge");
+		if (noMungeString != null) {
+			munge = Boolean.parseBoolean(noMungeString) ? false : true; // swap
+																		// values
+																		// because
+																		// it's
+																		// nomunge
+		}
 
-	    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-	        HttpServletRequest request = (HttpServletRequest) servletRequest;
-	        HttpServletResponse response = (HttpServletResponse) servletResponse;
-	        ServletOutputStream servletOutputStream = response.getOutputStream();
+		String preserveAllSemiColonsString = filterConfig
+				.getInitParameter("preserve-semi");
+		if (preserveAllSemiColonsString != null) {
+			preserveAllSemiColons = Boolean
+					.parseBoolean(preserveAllSemiColonsString);
+		}
+	}
 
-	        ServletContext context = filterConfig.getServletContext();
-	        String requestURI = request.getRequestURI();
-	        InputStream inputStream = context.getResourceAsStream(requestURI);
+	public void doFilter(ServletRequest servletRequest,
+			ServletResponse servletResponse, FilterChain filterChain)
+			throws IOException, ServletException {
+		HttpServletRequest request = (HttpServletRequest) servletRequest;
+		HttpServletResponse response = (HttpServletResponse) servletResponse;
+		ServletOutputStream servletOutputStream = response.getOutputStream();
 
-	        writeFileToServletOutputStream(requestURI, inputStream, servletOutputStream);
-	    }
+		ServletContext context = filterConfig.getServletContext();
+		String requestURI = request.getRequestURI();
+		InputStream inputStream = context.getResourceAsStream(requestURI);
 
-	    private void writeFileToServletOutputStream(String requestURI, InputStream inputStream, ServletOutputStream servletOutputStream) throws IOException {
-	        if (!cache.containsKey(requestURI)) {
-	            String s;
-	            if (requestURI.endsWith(".js")) {
-	                s = getCompressedJavaScript(inputStream);
-	            } else if (requestURI.endsWith(".css")) {
-	                s = getCompressedCss(inputStream);
-	            } else {
-	                s = "This file format is not supported by this filter. Only .css and .js are supported";
-	            }
-	            cache.put(requestURI, s);
-	        }
-	        write(cache.get(requestURI), servletOutputStream);
-	    }
+		writeFileToServletOutputStream(requestURI, inputStream,
+				servletOutputStream);
+	}
 
-	    /**
-	     * Write s to servletOutputStream
-	     *
-	     * @param s
-	     * @param servletOutputStream
-	     */
-	    private void write(String s, ServletOutputStream servletOutputStream) {
-	        try {
-	            servletOutputStream.print(s);
-	        } catch (IOException e) {
-	            
-	        }
-	    }
+	private void writeFileToServletOutputStream(String requestURI,
+			InputStream inputStream, ServletOutputStream servletOutputStream)
+			throws IOException {
+		if (!cache.containsKey(requestURI)) {
+			String s;
+			if (requestURI.endsWith(".js")) {
+				s = getCompressedJavaScript(inputStream);
+			} else if (requestURI.endsWith(".css")) {
+				s = getCompressedCss(inputStream);
+			} else {
+				s = "This file format is not supported by this filter. Only .css and .js are supported";
+			}
+			cache.put(requestURI, s);
+		}
+		write(cache.get(requestURI), servletOutputStream);
+	}
 
-	    /**
-	     * Note that the inputStream is closed!
-	     *
-	     * @param inputStream
-	     * @throws IOException
-	     */
-	    private String getCompressedJavaScript(InputStream inputStream) throws IOException {
-	        InputStreamReader isr = new InputStreamReader(inputStream);
-	        JavaScriptCompressor compressor = new JavaScriptCompressor(isr, new MinifierErrorReporter());
-	        inputStream.close();
+	/**
+	 * Write s to servletOutputStream
+	 *
+	 * @param s
+	 * @param servletOutputStream
+	 */
+	private void write(String s, ServletOutputStream servletOutputStream) {
+		try {
+			servletOutputStream.print(s);
+		} catch (IOException e) {
 
-	        StringWriter out = new StringWriter();
-	        
-	        compressor.compress(out, lineBreakPos, munge, warn, preserveAllSemiColons,false);
-	        out.flush();
+		}
+	}
 
-	        StringBuffer buffer = out.getBuffer();
-	        return buffer.toString();
-	    }
+	/**
+	 * Note that the inputStream is closed!
+	 *
+	 * @param inputStream
+	 * @throws IOException
+	 */
+	private String getCompressedJavaScript(InputStream inputStream)
+			throws IOException {
+		InputStreamReader isr = new InputStreamReader(inputStream);
+		JavaScriptCompressor compressor = new JavaScriptCompressor(isr,
+				new MinifierErrorReporter());
+		inputStream.close();
 
-	    /**
-	     * Note that the inputStream is closed!
-	     *
-	     * @param inputStream
-	     * @throws IOException
-	     */
-	    private String getCompressedCss(InputStream inputStream) throws IOException {
-	        InputStreamReader isr = new InputStreamReader(inputStream);
-	        CssCompressor compressor = new CssCompressor(isr);
-	        inputStream.close();
+		StringWriter out = new StringWriter();
 
-	        StringWriter out = new StringWriter();
-	        compressor.compress(out, lineBreakPos);
-	        out.flush();
+		compressor.compress(out, lineBreakPos, munge, warn,
+				preserveAllSemiColons, false);
+		out.flush();
 
-	        StringBuffer buffer = out.getBuffer();
-	        return buffer.toString();
-	    }
+		StringBuffer buffer = out.getBuffer();
+		return buffer.toString();
+	}
 
-	    public void destroy() {
-	    }}
+	/**
+	 * Note that the inputStream is closed!
+	 *
+	 * @param inputStream
+	 * @throws IOException
+	 */
+	private String getCompressedCss(InputStream inputStream) throws IOException {
+		InputStreamReader isr = new InputStreamReader(inputStream);
+		CssCompressor compressor = new CssCompressor(isr);
+		inputStream.close();
+
+		StringWriter out = new StringWriter();
+		compressor.compress(out, lineBreakPos);
+		out.flush();
+
+		StringBuffer buffer = out.getBuffer();
+		return buffer.toString();
+	}
+
+	public void destroy() {
+	}
+}

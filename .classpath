@@ -9,6 +9,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/twitter4j"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/yuicompressor-2.4.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="war/WEB-INF/lib/yuicompressor-2.4.8.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
