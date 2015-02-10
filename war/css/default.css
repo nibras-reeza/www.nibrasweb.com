@@ -3,7 +3,6 @@
 *   url: styleshout.com
 *   03-17-2014
 */
-
 /*
 TOC:
 a. Webfonts and Icon fonts
@@ -61,25 +60,39 @@ audio, canvas, video {
 }
 
 audio
+
+
 :not
+
  
+
 (
 [
 controls
 ]
+
  
+
 )
 {
 display
-:
- 
-none
-;
 
-	
-height
+
 :
+
  
+
+none
+
+
+;
+height
+
+
+:
+
+ 
+
 0;
 }
 [hidden] {
@@ -1246,13 +1259,12 @@ i.outcome {
 	color: #11ABB0;
 }
 
-.opaque{
-	
-	box-shadow: 0px 0px 14px rgba(0,0,0,0.3);
+.opaque {
+	box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.3);
 }
 
-a._btn-disabled, a._btn-disabled:visited, a._btn-disabled:hover{
-cursor: default;
-color: white !important;
-background:#a3aCa5;
+a._btn-disabled, a._btn-disabled:visited, a._btn-disabled:hover {
+	cursor: default;
+	color: white !important;
+	background: #a3aCa5;
 }
