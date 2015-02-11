@@ -1,8 +1,6 @@
-	1) Add tags for every project.
-	3) Improve text.
+	3) Improve text (done for skills).
 	
-	4) Deals$ to Deal$ Feed
-	5) Add reference to skills and projects.
+	5) Add reference to skills and projects (done for skills).
 	6) Image for each project.
 	7) Links for SINR.
 	
