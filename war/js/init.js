@@ -334,7 +334,9 @@ jQuery(document).ready(
 
 			if (window.location.hash.match(/modal/gi)) {
 				var link = window.location.hash.toString();
-				$('a[href$="portfolio"]').click();
+				
+				animationDone = false;
+				$('html, body').animate({scrollTop: $('#portfolio a[href$="'+link+'"]').offset().top-$('#nav').height()}, 800, function(){animationDone=true;});
 				
 				position = $('#portfolio').offset().top;
 				openPopup(link);
@@ -365,7 +367,7 @@ function openPopup(link) {
 function showProject(project) {
 	position = $(window).scrollTop();
 	animationDone = false;
-	$('a[href$="portfolio"]').click();
+	$('html, body').animate({scrollTop: $('#portfolio a[href$="'+project+'"]').offset().top-$('#nav').height()}, 800, function(){animationDone=true;});
 	openPopup(project);
 }
 
