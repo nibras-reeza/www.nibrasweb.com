@@ -5,6 +5,8 @@
 -----------------------------------------------------------------------------------*/
 var animationDone = false;
 var hash = '';
+var position = 0;
+var scroll = false;
 jQuery(document).ready(
 		function($) {
 
@@ -156,6 +158,11 @@ jQuery(document).ready(
 					close : function() {
 
 						window.location.hash = ' ';
+						
+						if(scroll)
+						$("html, body").animate({ scrollTop: position },800);
+						scroll = false;
+						
 					}
 				}
 
@@ -327,8 +334,9 @@ jQuery(document).ready(
 
 			if (window.location.hash.match(/modal/gi)) {
 				var link = window.location.hash.toString();
-
 				$('a[href$="portfolio"]').click();
+				
+				position = $('#portfolio').offset().top;
 				openPopup(link);
 
 			}
@@ -344,7 +352,7 @@ jQuery(document).ready(
 		});
 
 function openPopup(link) {
-
+	scroll = true;
 	if (animationDone) {
 
 		$('#portfolio').find('a[href$=' + link + ']').click();
@@ -355,6 +363,7 @@ function openPopup(link) {
 }
 
 function showProject(project) {
+	position = $(window).scrollTop();
 	animationDone = false;
 	$('a[href$="portfolio"]').click();
 	openPopup(project);
