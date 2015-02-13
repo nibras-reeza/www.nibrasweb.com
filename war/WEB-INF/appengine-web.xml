@@ -11,6 +11,9 @@
   <!-- Configure serving/caching of GWT files -->
   <static-files>
     <include path="**" />
+      <include path="/**.svg" expiration="30d" />
+      <include path="/**.woff" expiration="30d" />
+
 
     <!-- The following line requires App Engine 1.3.2 SDK -->
     <include path="**.nocache.*" expiration="0s" />
