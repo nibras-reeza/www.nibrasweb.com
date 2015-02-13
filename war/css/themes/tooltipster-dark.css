@@ -12,6 +12,7 @@ border: 1px solid #fff;
 	line-height: 21px;
 	letter-spacing: 1px;
 	padding: 8px 10px;
+	text-align: justify;
 }
 
 .tooltipster-dark .tooltipster-content a:hover{

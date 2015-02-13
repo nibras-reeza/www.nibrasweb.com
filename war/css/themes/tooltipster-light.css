@@ -19,6 +19,7 @@ border: 1px solid #cccccc;
 	font-size: 14px;
 	line-height: 20px;
 	letter-spacing: 1px;
+	text-align: justify;
 }
 
 .tooltipster-light .tooltipster-content a,.tooltipster-light .tooltipster-content a:visited{
