@@ -425,6 +425,11 @@
 		margin-left: 12px;
 	}
 }
+
+/* 
+	Load different background images based on screen size. Common resolutions are
+	added. Avoid loading unnecessarily large images.
+ */
  @media all and (max-width: 360px){
 	header{
 	background: #161415 url(../images/header-background-360p.jpg) no-repeat top
@@ -449,7 +454,13 @@
 		center;}
 }
  
+ 
+ /*
+ 	Print view.
+   */
 @media only print{
+	
+	/* Hide everything that wouldn't make sense on paper.  */
 	#nav-wrap,.social,#contact,.banner-text h3, btn, _btn, #hide-everything{
 		display: none;
 	}
