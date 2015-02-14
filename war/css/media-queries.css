@@ -450,7 +450,7 @@
 }
  
 @media only print{
-	#nav-wrap,.social,#contact,.banner-text h3, btn, _btn{
+	#nav-wrap,.social,#contact,.banner-text h3, btn, _btn, #hide-everything{
 		display: none;
 	}
 	

@@ -1274,7 +1274,7 @@ a._btn-disabled, a._btn-disabled:visited, a._btn-disabled:hover {
 	
 	text-align: center;
 	
-	 position:fixed; top:0; left:0; background: rgba(255,255,255, 0.9); z-index:1000; width:100%; height:100%; 
+	 position:fixed; top:0; left:0; background: rgba(255,255,255, 0.95); z-index:1000; width:100%; height:100%; 
 }
 
 .jsClient #hide-everything img{
