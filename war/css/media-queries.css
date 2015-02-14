@@ -427,19 +427,9 @@
 }
 
 @media only print{
-	#contact{
+	#nav-wrap,.social,#contact,.banner-text h3, btn, _btn{
 		display: none;
 	}
 	
-	#nav-wrap{
-		display:none;
-	}
 	
-	.social{
-		display: none;
-	}
-	
-	.banner-text h3{
-		display: none;
-	}
 }
