@@ -13,6 +13,8 @@
     <include path="**" />
       <include path="/**.svg" expiration="30d" />
       <include path="/**.woff" expiration="30d" />
+      <include path="/**.jpg" expiration="2d" />
+      <include path="/**.png" expiration="36h" />
 
 
     <!-- The following line requires App Engine 1.3.2 SDK -->
