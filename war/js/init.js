@@ -350,6 +350,10 @@ jQuery(document).ready(
 				showTip($(this).prop("hash"));
 
 			});
+			
+			
+
+			
 
 		});
 
