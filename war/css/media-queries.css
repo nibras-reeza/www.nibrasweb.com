@@ -425,3 +425,21 @@
 		margin-left: 12px;
 	}
 }
+
+@media only print{
+	#contact{
+		display: none;
+	}
+	
+	#nav-wrap{
+		display:none;
+	}
+	
+	.social{
+		display: none;
+	}
+	
+	.banner-text h3{
+		display: none;
+	}
+}
