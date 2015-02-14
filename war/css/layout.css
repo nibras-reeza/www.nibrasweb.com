@@ -44,29 +44,6 @@ header {
 	overflow: hidden;
 }
 
-@media all and (max-width: 360px){
-	header{
-	background: #161415 url(../images/header-background-360p.jpg) no-repeat top
-		center;}
-}
-
-@media all and (max-width: 480px){
-	header{
-	background: #161415 url(../images/header-background-480p.jpg) no-repeat top
-		center;}
-}
-
-@media all and (max-width: 640px){
-	header{
-	background: #161415 url(../images/header-background-640p.jpg) no-repeat top
-		center;}
-}
-
-@media all and (max-width: 1280px){
-	header{
-	background: #161415 url(../images/header-background-720p.jpg) no-repeat top
-		center;}
-}
 
 
 /* vertically center banner section */
